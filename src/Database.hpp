@@ -1,5 +1,5 @@
 /*
- simpleDatabase: Allows user to store a list of anything in a program
+ simpleSingletonDatabase: Allows user to store a list of anything in a program
     - Uses singleton pattern, so only one can exist of each type
  
  To Construct/Assign:
@@ -12,9 +12,10 @@
  Additional Methods:
     - add(): Takes a shared_ptr to an entry and an identifier for that entry and adds it to the database
     - remove(): Takes an identifier for an entry and removes it from the database (shared_ptr handles deletion)
-    - search(): Takes a search key and returns a pointer to an entry if the search key is found
-        - This function only searches the entry keys, so make sure your formatting is consistent
+    - get(): Takes an entry key and returns a pointer to an entry if the entry key is found
+        - This function only searches through the entry keys, so make sure your formatting is consistent
         - If no entry is found with a matching entry key, the function returns NULL
+    - existsInDatabase(): Returns true if the supplied entry id exists in the database
  */
 #ifndef Database_hpp
 #define Database_hpp
@@ -23,7 +24,7 @@
 #include <mutex>
 #include <memory>
 
-namespace simpleDatabase {
+namespace simpleSingletonDatabase {
 using Identifier = std::string;
 
 template <typename Type> class Database {
@@ -51,7 +52,8 @@ public:
     // Methods
     void add(const std::shared_ptr<Type>& entry, const Identifier& entryId);
     void remove(const Identifier& entryId);
-    std::shared_ptr<Type> search(const Identifier& searchKey);
+    std::shared_ptr<Type> get(const Identifier& entryKey);
+    bool existsInDatabase(const Identifier& entryKey);
 };
 
 template <typename Type> Database<Type>::Database() {
@@ -79,11 +81,15 @@ template <typename Type> void Database<Type>::remove(const Identifier& entryId) 
     data.erase(entryId);
 }
 
-template <typename Type> std::shared_ptr<Type> Database<Type>::search(const Identifier& searchKey) {
-    if (data.count(searchKey) != 0) {
-        return data[searchKey];
+template <typename Type> std::shared_ptr<Type> Database<Type>::get(const Identifier& entryKey) {
+    if (existsInDatabase(entryKey)) {
+        return data[entryKey];
     }
     return NULL;
+}
+
+template <typename Type> bool Database<Type>::existsInDatabase(const Identifier& entryKey) {
+    return data.count(entryKey) > 0;
 }
 
 }
