@@ -2,6 +2,7 @@
 #define Ingredient_hpp
 
 #include "Dish.hpp"
+#include <iostream>
 #include <string>
 #include <vector>
 #include <memory>
@@ -23,6 +24,8 @@ public:
     std::string getDisplayName();
     bool getAllergenStatus();
     std::vector<std::shared_ptr<Dish>> getDishesUsedIn;
+    
+    friend std::ostream& operator<<(std::ostream& output, const Ingredient& outputIngredient);
 };
 
 }
