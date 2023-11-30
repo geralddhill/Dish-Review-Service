@@ -83,6 +83,7 @@ Database<Type>* Database<Type>::getInstance() {
 }
 
 
+
 template <typename Type>
 void Database<Type>::add(const std::shared_ptr<Type>& entry, const Identifier& entryId) {
     data[entryId] = entry;
@@ -106,10 +107,12 @@ bool Database<Type>::existsInDatabase(const Identifier& entryKey) {
     return data.count(entryKey) > 0;
 }
 
+
+
 template <typename Type>
 std::ostream& operator<<(std::ostream& output, const Database<Type>& outputDatabase) {
     for (auto const& iterator: outputDatabase.data) {
-        output << *iterator.second << "\n";
+        output << ">\t" << *iterator.second << "\n";
     }
     return output;
 }

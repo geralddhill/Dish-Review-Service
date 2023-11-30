@@ -22,9 +22,9 @@ public:
     void toggleAllergen();
     void addDish(std::shared_ptr<Dish> newDish);
     
-    std::string getDisplayName();
-    bool getAllergenStatus();
-    std::vector<std::shared_ptr<Dish>> getDishesUsedIn();
+    std::string getDisplayName() const;
+    bool getAllergenStatus() const;
+    std::vector<std::shared_ptr<Dish>> getDishesUsedIn() const;
     
     friend std::ostream& operator<<(std::ostream& output, const Ingredient& outputIngredient);
 };
