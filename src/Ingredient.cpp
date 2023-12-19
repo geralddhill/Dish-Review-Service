@@ -7,7 +7,7 @@ using std::ostream;
 
 namespace dishReviewService {
 
-Ingredient::Ingredient(string newDisplayName) :
+Ingredient::Ingredient(const std::string& newDisplayName) :
     displayName(newDisplayName),
     isAllergen(false) {}
 
@@ -19,10 +19,6 @@ void Ingredient::toggleAllergen() {
     isAllergen = !isAllergen;
 }
 
-void Ingredient::addDish(shared_ptr<Dish> newDish) {
-    dishesUsedIn.push_back(newDish);
-}
-
 
 
 string Ingredient::getDisplayName() const {
@@ -31,10 +27,6 @@ string Ingredient::getDisplayName() const {
 
 bool Ingredient::getAllergenStatus() const {
     return isAllergen;
-}
-
-vector<shared_ptr<Dish>> Ingredient::getDishesUsedIn() const {
-    return dishesUsedIn;
 }
 
 

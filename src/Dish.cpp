@@ -8,7 +8,7 @@ using std::to_string;
 
 namespace dishReviewService {
 
-Dish::IngredientWrapper::IngredientWrapper(std::shared_ptr<Ingredient> newIngredient, std::string newText) :
+Dish::IngredientWrapper::IngredientWrapper(const shared_ptr<Ingredient>& newIngredient, const string& newText) :
     ingredient(newIngredient),
     ingredientText(newText) {}
 
@@ -19,13 +19,13 @@ ostream& operator<<(ostream& output, const Dish::IngredientWrapper& outputIngred
 
 
 
-Dish::Dish(string newDisplayName) :
+Dish::Dish(const string& newDisplayName) :
     displayName(newDisplayName) {}
 
 Dish::~Dish() {}
 
 
-void Dish::addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const std::string& newText) {
+void Dish::addIngredient(const shared_ptr<Ingredient>& newIngredient, const string& newText) {
     IngredientWrapper newWrapper(newIngredient, newText);
     ingredientsList.push_back(newWrapper);
 }
@@ -76,7 +76,7 @@ vector<string> Dish::getInstructions() const {
 
 
 
-string Dish::formatStep(int stepNumber, string stepText) const {
+string Dish::formatStep(const int& stepNumber, const string& stepText) const {
     string outputString;
     string word;
     string line;

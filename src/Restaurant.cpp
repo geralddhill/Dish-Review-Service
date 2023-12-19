@@ -6,7 +6,12 @@ using std::vector;
 using std::ostream;
 using std::to_string;
 
-Restaurant::Restaurant(string newDisplayName) : 
-    displayName(newDisplayName) {}
+namespace dishReviewService{
+
+Restaurant::Restaurant(const std::string& newDisplayName, const Address& newRestaurantAddress) :
+displayName(newDisplayName),
+restaurantAddress(newRestaurantAddress) {}
 
 Restaurant::~Restaurant() {}
+
+}

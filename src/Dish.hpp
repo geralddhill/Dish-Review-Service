@@ -17,7 +17,7 @@ private:
         std::shared_ptr<Ingredient> ingredient;
         std::string ingredientText;
         
-        IngredientWrapper(std::shared_ptr<Ingredient> newIngredient, std::string newText);
+        IngredientWrapper(const std::shared_ptr<Ingredient>& newIngredient, const std::string& newText);
     };
     friend std::ostream& operator<<(std::ostream& output, const IngredientWrapper& outputIngredient);
     
@@ -29,10 +29,10 @@ private:
     // we'd add a restaurants vector here with corresponding classes
     
     const int MAX_LINE_LENGTH = 70;
-    std::string formatStep(int stepNumber, std::string stepText) const;
+    std::string formatStep(const int& stepNumber, const std::string& stepText) const;
     
 public:
-    Dish(std::string newDisplayName);
+    Dish(const std::string& newDisplayName);
     ~Dish();
     
     void addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const std::string& newText);
