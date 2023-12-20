@@ -25,7 +25,8 @@ public:
     void setAddress(const Address& newRestaurantAddress);
     void addDish(const std::shared_ptr<Dish>& newDish, const std::string& newDishKey);
     void removeDish(const std::string& keyToRemove);
-
+    
+    friend std::ostream& operator<<(std::ostream& output, const Restaurant& outputRestaurant);
 };
 
 

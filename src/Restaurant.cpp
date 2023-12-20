@@ -26,4 +26,11 @@ void Restaurant::removeDish(const string& keyToRemove) {
     restaurantMenu.erase(keyToRemove);
 }
 
+
+
+std::ostream& operator<<(std::ostream& output, const Restaurant& outputRestaurant) {
+    output << outputRestaurant.displayName;
+    return output;
+}
+
 }
