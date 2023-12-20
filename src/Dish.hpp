@@ -12,6 +12,13 @@
 namespace dishReviewService {
 class Ingredient;
 
+// Used in getType() function
+enum dishType {
+    APPETIZER,
+    ENTRE,
+    DESSERT
+};
+
 class Dish {
 private:
     // IngredientWrapper contains the ingredient object and the text to display for the recipe
@@ -34,24 +41,55 @@ private:
     std::string formatStep(const int& stepNumber, const std::string& stepText) const;
     
 public:
+    // Constructor and Deconstructor
     Dish(const std::string& newDisplayName);
     ~Dish();
     
+    // Pure virtual function that allows us to access the dishType
+    virtual dishType getType() const = 0;
+
+    // Adds and Removes from ingredientsList map using a newIngredient pointer and a key
     void addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const std::string& newText, const std::string& newIngredientId);
     void removeIngredient(const std::string& keyToRemove);
+
+    // Adds and Removes from toolList vector using a newTool and an index in order to remove it
     void addTool(const std::string& newTool);
     void removeTool(const int& indexToRemove);
+
+    // Adds and Removes from instructions vector using a newStep and an index in order to remove it
     void addStep(const std::string& newStep);
     void removeStep(const int& indexToRemove);
     
+    // Simple accessor functions in order to return dish name, ingredients, tools, and instructions
     std::string getDisplayName() const;
     std::map<std::string, IngredientWrapper> getIngredients() const;
     std::vector<std::string> getTools() const;
     std::vector<std::string> getInstructions() const;
     
+    // Multiple ways to print the dish
     friend std::ostream& operator<<(std::ostream& output, const Dish& outputDish);
     void printDetailed(std::ostream& output) const;
 };
 
+
+// Child classes for Dish
+// each overrides the getType() function and returns its corresponding type
+class AppDish : public Dish {
+private:
+public:
+    virtual dishType getType() const override;
+};
+
+class EntDish : public Dish {
+private:
+public:
+    virtual dishType getType() const override;
+};
+
+class DesDish : public Dish {
+private:
+public:
+    virtual dishType getType() const override;
+};
 }
 #endif
