@@ -25,9 +25,9 @@ int main() {
     
     dishDatabase->add(lemonPepperChickenPtr, "lemon_pepper_chicken");
     
-    lemonPepperChickenPtr->addIngredient(lemonPtr, "2 Lemons");
-    lemonPepperChickenPtr->addIngredient(chickenPtr, "700g Chicken Breast");
-    lemonPepperChickenPtr->addIngredient(pepperPtr, "Pepper to taste");
+    lemonPepperChickenPtr->addIngredient(lemonPtr, "2 Lemons", "lemon");
+    lemonPepperChickenPtr->addIngredient(chickenPtr, "700g Chicken Breast", "pepper");
+    lemonPepperChickenPtr->addIngredient(pepperPtr, "Pepper to taste", "chicken");
     lemonPepperChickenPtr->addTool("Cast Iron Skillet");
     lemonPepperChickenPtr->addTool("Bowl");
     lemonPepperChickenPtr->addStep("Place chicken breast in bowl and season with lemon and pepper.");

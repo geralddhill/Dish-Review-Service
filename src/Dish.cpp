@@ -3,14 +3,15 @@
 using std::string;
 using std::shared_ptr;
 using std::vector;
+using std::map;
 using std::ostream;
 using std::to_string;
 
 namespace dishReviewService {
 
-Dish::IngredientWrapper::IngredientWrapper(const shared_ptr<Ingredient>& newIngredient, const string& newText) :
+/*Dish::IngredientWrapper::IngredientWrapper(const shared_ptr<Ingredient>& newIngredient, const string& newText) :
     ingredient(newIngredient),
-    ingredientText(newText) {}
+    ingredientText(newText) {}*/
 
 ostream& operator<<(ostream& output, const Dish::IngredientWrapper& outputIngredient) {
     output << outputIngredient.ingredientText;
@@ -25,13 +26,15 @@ Dish::Dish(const string& newDisplayName) :
 Dish::~Dish() {}
 
 
-void Dish::addIngredient(const shared_ptr<Ingredient>& newIngredient, const string& newText) {
-    IngredientWrapper newWrapper(newIngredient, newText);
-    ingredientsList.push_back(newWrapper);
+void Dish::addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const string& newText, const string& newIngredientId) {
+    IngredientWrapper newWrapper;
+    newWrapper.ingredient = newIngredient;
+    newWrapper.ingredientText = newText;
+    ingredientsList[newIngredientId] = newWrapper;
 }
 
-void Dish::removeIngredient(const int& indexToRemove) {
-    ingredientsList.erase(ingredientsList.begin()+indexToRemove);
+void Dish::removeIngredient(const std::string& keyToRemove) {
+    ingredientsList.erase(keyToRemove);
 }
 
 void Dish::addTool(const string& newTool) {
@@ -56,14 +59,8 @@ string Dish::getDisplayName() const {
     return displayName;
 }
 
-vector<shared_ptr<Ingredient>> Dish::getIngredients() const {
-    vector<shared_ptr<Ingredient>> outputIngredientsList;
-    
-    for (auto const& ingredientWrapper: ingredientsList) {
-        outputIngredientsList.push_back(ingredientWrapper.ingredient);
-    }
-    
-    return outputIngredientsList;
+map<string, Dish::IngredientWrapper> Dish::getIngredients() const {
+    return ingredientsList;
 }
 
 vector<string> Dish::getTools() const {
@@ -120,7 +117,7 @@ void Dish::printDetailed(ostream& output) const {
     
     output << "Ingredients:\n";
     for (auto const& ingredient: ingredientsList) {
-        output << "\t" << ingredient << "\n";
+        output << "\t" << ingredient.second << "\n";
     }
     output << "\n";
     
