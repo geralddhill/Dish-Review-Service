@@ -19,7 +19,7 @@ ostream& operator<<(ostream& output, const Dish::IngredientWrapper& outputIngred
 }
 
 
-
+// Constructor and Deconstructor
 Dish::Dish(const string& newDisplayName) :
     displayName(newDisplayName) {}
 
