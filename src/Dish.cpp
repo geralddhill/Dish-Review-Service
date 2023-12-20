@@ -25,7 +25,7 @@ Dish::Dish(const string& newDisplayName) :
 
 Dish::~Dish() {}
 
-
+// Adds ingredient and ingredient text (i.e. "2 slices of cheese") into a wrapper then inserts wrapper into ingredientsList map
 void Dish::addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const string& newText, const string& newIngredientId) {
     IngredientWrapper newWrapper;
     newWrapper.ingredient = newIngredient;
@@ -54,7 +54,7 @@ void Dish::removeStep(const int& indexToRemove) {
 }
 
 
-
+// Simple accessor functions
 string Dish::getDisplayName() const {
     return displayName;
 }
@@ -72,33 +72,41 @@ vector<string> Dish::getInstructions() const {
 }
 
 
-
+// Takes in Step info and Step Number and formats in order to print properly
 string Dish::formatStep(const int& stepNumber, const string& stepText) const {
     string outputString;
     string word;
     string line;
     
+    // Adds step number
     line = to_string(stepNumber) + ")\t";
     
+    // Iterates cursor one char at a time
     for (int cursor = 0; cursor < stepText.length(); cursor++)
         {
+            // If char after cursor is NOT a 'space', add char to word
             if (!isspace(stepText[cursor]))
             {
                 word += stepText[cursor];
             }
+            // If char after cursor IS a 'space'
             else
             {
+                // If current line plus most recent word is greater than the max line length, move to the next line
                 if ( (line.length() + word.length()) > MAX_LINE_LENGTH)
                 {
                     outputString = outputString + line + "\n";
                     line = "\t";
                 }
+                // Add the word and move on
                 line = line + word + " ";
                 word.clear();
             }
         }
+        // Add final word to line
         line = line + word;
         word.clear();
+        // Add final line to output
         outputString = outputString + line;
         line.clear();
 
@@ -115,18 +123,22 @@ ostream& operator<<(ostream& output, const Dish& outputDish) {
 void Dish::printDetailed(ostream& output) const {
     output << displayName << "\n\n";
     
+    // Iterates through ingredientsList
     output << "Ingredients:\n";
     for (auto const& ingredient: ingredientsList) {
         output << "\t" << ingredient.second << "\n";
     }
     output << "\n";
     
+    // Iterates through toolsList
     output << "Tools:\n";
     for (auto const& tool: toolsList) {
         output << "\t" << tool << "\n";
     }
     output << "\n";
     
+    // Iterates through steps
+    // first, step number is created and is iterated as we move through the steps
     output << "Instructions:\n";
     int stepNumber = 1;
     for (auto const& step: instructions) {
@@ -135,4 +147,21 @@ void Dish::printDetailed(ostream& output) const {
     }
 }
 
+
+// Child classes for Dish
+// each overrides the getType() function and returns its corresponding type
+dishType AppDish::getType() const {
+    return APPETIZER;
 }
+
+dishType EntDish::getType() const {
+    return ENTRE;
+}
+
+dishType DesDish::getType() const {
+    return DESSERT;
+}
+
+}
+
+
