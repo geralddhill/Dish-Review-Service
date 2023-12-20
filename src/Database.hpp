@@ -55,13 +55,18 @@ public:
     // The single instance of the database of this type
     static Database<Type>* getInstance();
     
-    // Methods
+    // Adds an entry
     void add(const std::shared_ptr<Type>& entry, const Identifier& entryId);
+    // Removes an entry
     void remove(const Identifier& entryId);
+    // Returns an entry
     std::shared_ptr<Type> getEntry(const Identifier& entryKey);
+    // Returns the size of the database
     int getSize();
+    // Check if an id exists in the database
     bool existsInDatabase(const Identifier& entryKey);
     
+    // Operator<< overload
     template <typename T>
     friend std::ostream& operator<<(std::ostream& output, const Database<T>& outputDatabase);
 };
@@ -119,8 +124,8 @@ bool Database<Type>::existsInDatabase(const Identifier& entryKey) {
 
 template <typename Type>
 std::ostream& operator<<(std::ostream& output, const Database<Type>& outputDatabase) {
+    output << std::left << std::setw(40) << "ID" << "Name\n";
     for (auto const& iterator: outputDatabase.data) {
-        output << std::left << std::setw(40) << "ID" << "Name\n";
         output << std::setw(40) << iterator.first << *iterator.second << "\n";
     }
     return output;

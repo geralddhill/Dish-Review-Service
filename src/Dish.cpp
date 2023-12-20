@@ -150,16 +150,24 @@ void Dish::printDetailed(ostream& output) const {
 
 // Child classes for Dish
 // each overrides the getType() function and returns its corresponding type
-dishType AppDish::getType() const {
-    return APPETIZER;
+AppetizerDish::~AppetizerDish() {};
+
+DishType AppetizerDish::getType() {
+    return Appetizer;
 }
 
-dishType EntDish::getType() const {
-    return ENTRE;
+
+EntreeDish::~EntreeDish() {};
+
+DishType EntreeDish::getType() {
+    return Entree;
 }
 
-dishType DesDish::getType() const {
-    return DESSERT;
+
+DessertDish::~DessertDish() {};
+
+DishType DessertDish::getType() {
+    return Dessert;
 }
 
 }
