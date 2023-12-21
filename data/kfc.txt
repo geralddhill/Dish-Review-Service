@@ -1,0 +1,20 @@
+ENTREE
+kfc:chicken_strips
+Chicken Strips
+ING_START
+chicken_breast
+chicken_breast
+1 lb of chicken breast
+canola_oil
+Canola Oil
+Canola Oil
+ING_END
+TOOL_START
+Bowl
+Frying Pan
+TOOL_END
+INS_START
+Dredge chicken.
+Fry chicken.
+Serve and enjoy
+INS_END

@@ -5,7 +5,8 @@
 
 using namespace dishReviewService;
 
-int main() {RestaurantInterface myInterface;
+int main() {
+    RestaurantInterface myInterface;
     myInterface.run();
     
 //    Database<Ingredient>* ingredientDatabase = Database<Ingredient>::getInstance();

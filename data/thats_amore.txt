@@ -1,0 +1,46 @@
+APPETIZER
+thats_amore:caprese_skewers
+Caprese Skewers
+ING_START
+tomato
+Tomato
+2 tomatoes
+mozzarella
+Mozzarella
+Sliced mozzarella
+basil
+Basil
+1 sprig of basil
+ING_END
+TOOL_START
+Skewers
+Plate
+TOOL_END
+INS_START
+Alternate tomato, mozzarella, and basil on skewers.
+Arrange on a plate.
+Drizzle with balsamic glaze.
+INS_END
+DESSERT
+thats_amore:chocolate_avocado_mousse
+Chocolate Avocado Mousse
+ING_START
+avocado
+Avocado
+2 Avocados
+cocoa_powder
+Cocoa Powder
+2 tsp. cocoa powder
+honey
+Honey
+Honey
+ING_END
+TOOL_START
+Blender
+Bowl
+TOOL_END
+INS_START
+Blend avocado, cocoa powder, and honey.
+Chill in the refrigerator.
+Serve chilled.
+INS_END

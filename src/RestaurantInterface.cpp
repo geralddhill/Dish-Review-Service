@@ -106,6 +106,7 @@ RestaurantInterface::RestaurantInterface() {
             exit(1);
         }
 
+        // Imports dishes for restaurant
         while(dishInFile.peek() != EOF) {
             dishInFile >> dishInputType;
             dishInFile >> dishInputId;
@@ -145,6 +146,7 @@ RestaurantInterface::RestaurantInterface() {
             }
             
             dishInFile >> dishInputTool;
+            dishInFile.ignore();
             // Reads all tools
             while (dishInputTool != "TOOL_END") {
                 getline(dishInFile, dishInputTool);
@@ -157,6 +159,7 @@ RestaurantInterface::RestaurantInterface() {
             }
             
             dishInFile >> dishInputStep;
+            dishInFile.ignore();
             // Reads all instructions
             while (dishInputStep != "INS_END") {
                 getline(dishInFile, dishInputStep);
@@ -395,7 +398,7 @@ void RestaurantInterface::viewRestaurantMenu(string currentRestaurantId, shared_
         menuInputValid = false;
         
         // Displays restaurant details
-        cout << detailed(*currentRestaurant);
+        cout << detailed(*currentRestaurant) << "\n";
         
         cout << "Restaurant Menu:\n";
         cout << "1 - Change Address\n";
@@ -670,7 +673,7 @@ void RestaurantInterface::addDish(string restaurantId, shared_ptr<Restaurant> re
             ingredientDatabase->add(inputIngredient, inputIngredientId);
             // Add to file
             ingredientOutFile << inputIngredientId << "\n" << inputIngredientName << "\n"
-                << isAllergenInput << "\n";;
+                << static_cast<char>(toupper(isAllergenInput)) << "\n";;
         }
         else {
             // Copies if it already exists
@@ -725,12 +728,14 @@ void RestaurantInterface::addDish(string restaurantId, shared_ptr<Restaurant> re
     outFile << "INS_END\n";
     
     // Add to restaurant
-    
+    restaurant->addDish(finalInputDish, inputId);
     
     // Adds to database
     dishDatabase->add(finalInputDish, inputId);
     
     outFile.close();
+    
+    cout << "\n\n\n";
 }
 
 void RestaurantInterface::removeDish() const {
@@ -751,6 +756,7 @@ Address RestaurantInterface::createAddress() const {
     cout << "Enter Zipcode: ";
     cin >> outputAddress.zipcode;
     cin.ignore();
+    cout << "\n\n\n";
     
     return outputAddress;
 }
