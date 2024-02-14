@@ -1,0 +1,46 @@
+ENTREE
+thai_kitchen:spicy_thai_noodles
+Spicy Thai Noodles
+ING_START
+rice_noodles
+Rice Noodles
+1 bag of rice noodles
+soy_sauce
+Soy Sauce
+Soy Sauce
+chicken_breast
+Chicken Breast
+1 lb of chicken breast
+ING_END
+TOOL_START
+Wok
+Knife
+TOOL_END
+INS_START
+Boil noodles.
+Stir-fry chicken.
+Mix with soy sauce.
+INS_END
+ENTREE
+thai_kitchen:coconut_curry_chicken
+Coconut Curry Chicken
+ING_START
+chicken_breast
+Chicken Breast
+1lb of chicken breast
+coconut_milk
+Coconut Milk
+1 pint of coconut milk
+thai_curry_paste
+Thai Curry Paste
+Thai Curry Paste
+ING_END
+TOOL_START
+Pot
+Spoon
+TOOL_END
+INS_START
+Cook chicken in coconut milk.
+Stir in Thai curry paste.
+Simmer until chicken is cooked.
+INS_END

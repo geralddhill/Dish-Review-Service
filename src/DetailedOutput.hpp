@@ -23,6 +23,8 @@ private:
     const Type& baseObject;
     
 public:
+    // Constructs object wrapper and allows new operator<< overload
+    // Constructor allows the object to exist only once.
     detailed(const Type& newObject);
     ~detailed();
     
@@ -43,6 +45,7 @@ detailed<Type>::~detailed() {}
 
 template<typename Type>
 std::ostream& operator<<(std::ostream& output, const detailed<Type>& detailedObject) {
+    // Runs the printDetailed() function of the object when running detailed()
     detailedObject.baseObject.printDetailed(output);
     return output;
 }

@@ -12,22 +12,24 @@
  Additional Methods:
     - add(): Takes a shared_ptr to an entry and an identifier for that entry and adds it to the database
     - remove(): Takes an identifier for an entry and removes it from the database (shared_ptr handles deletion)
-    - get(): Takes an entry key and returns a pointer to an entry if the entry key is found
+    - getEntry(): Takes an entry key and returns a pointer to an entry if the entry key is found
         - This function only searches through the entry keys, so make sure your formatting is consistent
         - If no entry is found with a matching entry key, the function returns NULL
     - existsInDatabase(): Returns true if the supplied entry id exists in the database
-        - Used in get()
+        - Used in getEntry()
     - operator<<(): Allows use of << operator
         - Make sure that if you're using a custom datatype, that you're custom datatype also overloads the << operator
  */
 #ifndef Database_hpp
 #define Database_hpp
 
+#include <iostream>
+#include <iomanip>
 #include <map>
 #include <mutex>
 #include <memory>
 
-namespace simpleSingletonDatabase {
+namespace ssd {
 using Identifier = std::string;
 
 template <typename Type>
@@ -53,12 +55,18 @@ public:
     // The single instance of the database of this type
     static Database<Type>* getInstance();
     
-    // Methods
+    // Adds an entry
     void add(const std::shared_ptr<Type>& entry, const Identifier& entryId);
+    // Removes an entry
     void remove(const Identifier& entryId);
-    std::shared_ptr<Type> get(const Identifier& entryKey);
+    // Returns an entry
+    std::shared_ptr<Type> getEntry(const Identifier& entryKey);
+    // Returns the size of the database
+    int getSize();
+    // Check if an id exists in the database
     bool existsInDatabase(const Identifier& entryKey);
     
+    // Operator<< overload
     template <typename T>
     friend std::ostream& operator<<(std::ostream& output, const Database<T>& outputDatabase);
 };
@@ -91,11 +99,16 @@ void Database<Type>::remove(const Identifier& entryId) {
 }
 
 template <typename Type>
-std::shared_ptr<Type> Database<Type>::get(const Identifier& entryKey) {
+std::shared_ptr<Type> Database<Type>::getEntry(const Identifier& entryKey) {
     if (existsInDatabase(entryKey)) {
         return data[entryKey];
     }
     return NULL;
+}
+
+template <typename Type>
+int Database<Type>::getSize() {
+    return int(data.size());
 }
 
 template <typename Type>
@@ -105,8 +118,9 @@ bool Database<Type>::existsInDatabase(const Identifier& entryKey) {
 
 template <typename Type>
 std::ostream& operator<<(std::ostream& output, const Database<Type>& outputDatabase) {
+    output << std::left << std::setw(40) << "ID" << "Name\n";
     for (auto const& iterator: outputDatabase.data) {
-        output << ">\t" << *iterator.second << "\n";
+        output << std::setw(40) << iterator.first << *iterator.second << "\n";
     }
     return output;
 }

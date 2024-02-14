@@ -1,0 +1,24 @@
+kfc
+KFC
+24 Culver Dr.
+Irvine
+CA
+92614
+thai_kitchen
+Thai Kitchen
+55 Artesia Blvd.
+Los Angeles
+CA
+59332
+thats_amore
+That's Amore
+8433 Manhattan Blvd.
+New York
+NY
+64993
+el_gordos
+El Gordo's
+53 Main St.
+Corpus Christi
+TX
+54939

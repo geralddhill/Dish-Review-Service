@@ -1,0 +1,246 @@
+rice_noodles
+Rice Noodles
+N
+soy_sauce
+Soy Sauce
+N
+chicken_breast
+Chicken Breast
+N
+olive_oil
+Olive Oil
+N
+garlic
+Garlic
+N
+onion
+Onion
+N
+ginger
+Ginger
+Y
+carrot
+Carrot
+N
+bell_pepper
+Bell Pepper
+N
+sesame_oil
+Sesame Oil
+N
+hoisin_sauce
+Hoisin Sauce
+N
+brown_sugar
+Brown Sugar
+N
+green_onion
+Green Onion
+N
+cilantro
+Cilantro
+N
+shrimp
+Shrimp
+Y
+egg
+Egg
+Y
+beef_strips
+Beef Strips
+N
+sweet_potato
+Sweet Potato
+N
+thyme
+Thyme
+N
+lime
+Lime
+N
+black_pepper
+Black Pepper
+N
+cumin
+Cumin
+N
+coriander
+Coriander
+N
+coconut_milk
+Coconut Milk
+N
+red_pepper_flakes
+Red Pepper Flakes
+N
+paprika
+Paprika
+N
+cayenne_pepper
+Cayenne Pepper
+N
+tomato
+Tomato
+N
+oregano
+Oregano
+N
+rosemary
+Rosemary
+N
+basil
+Basil
+N
+parsley
+Parsley
+N
+white_wine_vinegar
+White Wine Vinegar
+N
+balsamic_vinegar
+Balsamic Vinegar
+N
+apple_cider_vinegar
+Apple Cider Vinegar
+N
+thai_curry_paste
+Thai Curry Paste
+N
+cinnamon
+Cinnamon
+N
+nutmeg
+Nutmeg
+Y
+cardamom
+Cardamom
+N
+clove
+Clove
+N
+vanilla_extract
+Vanilla Extract
+Y
+honey
+Honey
+N
+maple_syrup
+Maple Syrup
+N
+mayonnaise
+Mayonnaise
+N
+dijon_mustard
+Dijon Mustard
+N
+whole_grain_mustard
+Whole Grain Mustard
+Y
+ketchup
+Ketchup
+N
+worcestershire_sauce
+Worcestershire Sauce
+N
+hot_sauce
+Hot Sauce
+N
+sriracha
+Sriracha
+N
+mustard_seeds
+Mustard Seeds
+N
+poppy_seeds
+Poppy Seeds
+N
+sesame_seeds
+Sesame Seeds
+N
+sunflower_seeds
+Sunflower Seeds
+N
+pumpkin_seeds
+Pumpkin Seeds
+N
+flaxseeds
+Flaxseeds
+N
+chia_seeds
+Chia Seeds
+N
+quinoa
+Quinoa
+N
+barley
+Barley
+Y
+farro
+Farro
+N
+bulgur
+Bulgur
+N
+couscous
+Couscous
+N
+almond
+Almond
+Y
+walnut
+Walnut
+Y
+cashew
+Cashew
+Y
+pecan
+Pecan
+Y
+peanut
+Peanut
+Y
+sunflower_oil
+Sunflower Oil
+N
+coconut_oil
+Coconut Oil
+N
+avocado_oil
+Avocado Oil
+N
+canola_oil
+Canola Oil
+N
+grape_seed_oil
+Grape Seed Oil
+N
+flour
+Flour
+N
+cornstarch
+Cornstarch
+N
+baking_powder
+Baking Powder
+N
+baking_soda
+Baking Soda
+N
+yeast
+Yeast
+N
+cocoa_powder
+Cocoa Powder
+Y
+mozzarella
+Mozzarella
+Y
+avocado
+Avocado
+N
+ground_beef
+Ground Beef
+N
+rice
+Rice
+N

@@ -13,10 +13,10 @@ namespace dishReviewService {
 class Ingredient;
 
 // Used in getType() function
-enum dishType {
-    APPETIZER,
-    ENTRE,
-    DESSERT
+enum DishType {
+    Appetizer,
+    Entree,
+    Dessert
 };
 
 class Dish {
@@ -43,10 +43,10 @@ private:
 public:
     // Constructor and Deconstructor
     Dish(const std::string& newDisplayName);
-    ~Dish();
+    virtual ~Dish();
     
     // Pure virtual function that allows us to access the dishType
-    virtual dishType getType() const = 0;
+    virtual DishType getType() = 0;
 
     // Adds and Removes from ingredientsList map using a newIngredient pointer and a key
     void addIngredient(const std::shared_ptr<Ingredient>& newIngredient, const std::string& newText, const std::string& newIngredientId);
@@ -74,22 +74,29 @@ public:
 
 // Child classes for Dish
 // each overrides the getType() function and returns its corresponding type
-class AppDish : public Dish {
-private:
+class AppetizerDish : public Dish {
 public:
-    virtual dishType getType() const override;
+    using Dish::Dish;
+    virtual ~AppetizerDish();
+    
+    virtual DishType getType();
 };
 
-class EntDish : public Dish {
-private:
+class EntreeDish : public Dish {
 public:
-    virtual dishType getType() const override;
+    using Dish::Dish;
+    virtual ~EntreeDish();
+    
+    virtual DishType getType();
 };
 
-class DesDish : public Dish {
-private:
+class DessertDish : public Dish {
 public:
-    virtual dishType getType() const override;
+    using Dish::Dish;
+    virtual ~DessertDish();
+    
+    virtual DishType getType();
 };
+
 }
 #endif

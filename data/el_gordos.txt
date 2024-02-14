@@ -1,0 +1,46 @@
+ENTREE
+el_gordos:stuffed_bell_peppers
+Stuffed Bell Peppers
+ING_START
+bell_pepper
+Bell Pepper
+4 bell peppers
+ground_beef
+Ground Beef
+1 lb ground beef
+rice
+Rice
+1 cup of rice
+ING_END
+TOOL_START
+Baking Dish
+Spoon
+TOOL_END
+INS_START
+Stuff peppers with a mixture of ground beef and rice.
+Bake until peppers are tender.
+Serve hot.
+INS_END
+APPETIZER
+el_gordos:guacamole
+Guacamole
+ING_START
+avocado
+Avocado
+4 avocados
+lime
+Lime
+1 whole lime
+onion
+Onion
+1/2 of an onion
+ING_END
+TOOL_START
+Bowl
+Masher
+TOOL_END
+INS_START
+Mash avocado.
+Mix in lime juice and diced onion.
+Salt to taste.
+INS_END
