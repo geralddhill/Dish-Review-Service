@@ -71,18 +71,14 @@ Database<Type>::~Database() {
     delete instance;
 }
 
-
 template <typename Type>
 Database<Type>* Database<Type>::getInstance() {
-    // Idk what this line does I copied it from a tutorial
     std::lock_guard<std::mutex> lock(mutex);
     if (instance == nullptr) {
         instance = new Database<Type>;
     }
     return instance;
 }
-
-
 
 template <typename Type>
 void Database<Type>::add(const std::shared_ptr<Type>& entry, const Identifier& entryId) {
@@ -106,8 +102,6 @@ template <typename Type>
 bool Database<Type>::existsInDatabase(const Identifier& entryKey) {
     return data.count(entryKey) > 0;
 }
-
-
 
 template <typename Type>
 std::ostream& operator<<(std::ostream& output, const Database<Type>& outputDatabase) {
