@@ -71,7 +71,6 @@ public:
     void printDetailed(std::ostream& output) const;
 };
 
-
 // Child classes for Dish
 // each overrides the getType() function and returns its corresponding type
 class AppetizerDish : public Dish {
@@ -99,4 +98,4 @@ public:
 };
 
 }
-#endif
+#endif /* Dish.hpp */

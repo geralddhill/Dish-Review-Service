@@ -9,15 +9,16 @@ using std::to_string;
 
 namespace dishReviewService {
 
-/*Dish::IngredientWrapper::IngredientWrapper(const shared_ptr<Ingredient>& newIngredient, const string& newText) :
+/*
+Dish::IngredientWrapper::IngredientWrapper(const shared_ptr<Ingredient>& newIngredient, const string& newText) :
     ingredient(newIngredient),
-    ingredientText(newText) {}*/
+    ingredientText(newText) {}
+*/
 
 ostream& operator<<(ostream& output, const Dish::IngredientWrapper& outputIngredient) {
     output << outputIngredient.ingredientText;
     return output;
 }
-
 
 // Constructor and Deconstructor
 Dish::Dish(const string& newDisplayName) :
@@ -156,13 +157,11 @@ DishType AppetizerDish::getType() {
     return Appetizer;
 }
 
-
 EntreeDish::~EntreeDish() {};
 
 DishType EntreeDish::getType() {
     return Entree;
 }
-
 
 DessertDish::~DessertDish() {};
 
@@ -170,6 +169,6 @@ DishType DessertDish::getType() {
     return Dessert;
 }
 
-}
+} /* Dish_cpp */
 
 

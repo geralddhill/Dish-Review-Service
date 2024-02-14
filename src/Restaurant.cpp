@@ -9,6 +9,7 @@ using std::cout;
 
 namespace dishReviewService{
 
+//
 std::ostream& operator<<(std::ostream& output, const Address& outputAddress) {
     output << outputAddress.streetAddress << "\n";
     output << outputAddress.city << ", " << outputAddress.stateAbbreviated << "\n";
@@ -17,19 +18,17 @@ std::ostream& operator<<(std::ostream& output, const Address& outputAddress) {
     return output;
 }
 
-
-
+// Restaurant constructor
 Restaurant::Restaurant(const string& newDisplayName, const Address& newRestaurantAddress) :
 displayName(newDisplayName),
 restaurantAddress(newRestaurantAddress) {}
 
 Restaurant::~Restaurant() {}
 
-
+// Simple accessor functions
 Address Restaurant::getAddress() {
     return restaurantAddress;
 }
-
 
 std::map<std::string, std::shared_ptr<Dish>> Restaurant::getAppetizers() {
     return appertizerMenu;
@@ -42,7 +41,6 @@ std::map<std::string, std::shared_ptr<Dish>> Restaurant::getEntrees() {
 std::map<std::string, std::shared_ptr<Dish>> Restaurant::getDesserts() {
     return dessertMenu;
 }
-
 
 
 void Restaurant::setAddress(const Address& newRestaurantAddress) {
@@ -100,6 +98,6 @@ void Restaurant::printDetailed(ostream& output) const {
     }
 }
 
-}
+} /* Restaurant_cpp */
 
 

@@ -14,12 +14,10 @@ Ingredient::Ingredient(const std::string& newDisplayName) :
 
 Ingredient::~Ingredient() {}
 
-
 // Toggles whether or not the ingredient can be an allergen
 void Ingredient::toggleAllergen() {
     isAllergen = !isAllergen;
 }
-
 
 // Simple accessor function
 string Ingredient::getDisplayName() const {
@@ -29,7 +27,6 @@ string Ingredient::getDisplayName() const {
 bool Ingredient::getAllergenStatus() const {
     return isAllergen;
 }
-
 
 // << Overload in order to print
 // " (Known Allergen)" is added after the name if ingredient is allergen
@@ -42,4 +39,4 @@ ostream& operator<<(ostream& output, const Ingredient& outputIngredient) {
     return output;
 }
 
-}
+} /* Ingredient_cpp */

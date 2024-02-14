@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cctype>
 #include <sstream>
+#include <algorithm>
 
 using namespace ssd;
 using std::cout;
@@ -160,6 +161,7 @@ RestaurantInterface::RestaurantInterface() {
             
             dishInFile >> dishInputStep;
             dishInFile.ignore();
+
             // Reads all instructions
             while (dishInputStep != "INS_END") {
                 getline(dishInFile, dishInputStep);
@@ -189,7 +191,7 @@ RestaurantInterface::RestaurantInterface() {
 RestaurantInterface::~RestaurantInterface() {}
 
 
-
+// Running the interface
 void RestaurantInterface::run() const {
     Database<Restaurant> *restaurantDatabase = Database<Restaurant>::getInstance();
     int userInput;
@@ -241,6 +243,7 @@ void RestaurantInterface::run() const {
 }
 
 
+// Menu Select Options
 
 void RestaurantInterface::viewRestaurant() const {
     Database<Restaurant> *restaurantDatabase = Database<Restaurant>::getInstance();
@@ -259,6 +262,7 @@ void RestaurantInterface::viewRestaurant() const {
             cin >> userInput;
             cin.ignore();
             
+            // Checks if existing
             if (!restaurantDatabase->existsInDatabase(userInput) && userInput != "EXIT" && userInput != "ADD") {
                 cout << "Please pick an existing ID.\n";
                 continue;
@@ -268,10 +272,12 @@ void RestaurantInterface::viewRestaurant() const {
             cout << "\n\n\n";
         }
         
+        // Selected option "ADD"
         if (userInput == "ADD") {
             cout << "\n\n\n";
             addRestaurant();
         }
+        // Selected option "EXIT"
         else if (userInput == "EXIT") {
             continue;
         }
@@ -337,8 +343,6 @@ void RestaurantInterface::viewDatabase() const {
         }
     }
 }
-
-
 
 void RestaurantInterface::addRestaurant() const {
     Database<Restaurant> *restaurantDatabase = Database<Restaurant>::getInstance();
@@ -445,8 +449,6 @@ void RestaurantInterface::viewRestaurantMenu(string currentRestaurantId, shared_
         }
     }
 }
-
-
 
 void RestaurantInterface::editAddressFile(Address oldAddress, Address newAddress) const {
     ifstream inFile;
@@ -784,4 +786,4 @@ string RestaurantInterface::convertToId(const string& input) const {
 
 
 
-}
+} /* RestaurantInterface_cpp */

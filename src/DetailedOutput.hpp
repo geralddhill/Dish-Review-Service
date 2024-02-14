@@ -32,16 +32,12 @@ public:
     friend std::ostream& operator<<(std::ostream& output, const detailed<T>& detailedObject);
 };
 
-
-
 template<typename Type>
 detailed<Type>::detailed(const Type& newObject) :
 baseObject(newObject) {}
 
 template<typename Type>
 detailed<Type>::~detailed() {}
-
-
 
 template<typename Type>
 std::ostream& operator<<(std::ostream& output, const detailed<Type>& detailedObject) {
@@ -51,4 +47,4 @@ std::ostream& operator<<(std::ostream& output, const detailed<Type>& detailedObj
 }
 
 }
-#endif
+#endif /* DetailedOutput_hpp */
